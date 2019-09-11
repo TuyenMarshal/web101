@@ -2,51 +2,135 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Cool Kids</title>
+	<title>Document</title>
 </head>
-
-<body>
-  <h1>Cool Kids' Website</h1>
-  <h2>This is smaller page</h2>
-  <div>
-    <p>This is just a tag </p>
-    <img src="//placehold.it/200x300" alt="a gray box">
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error architecto est laborum odit, vitae impedit accusamus illo nemo officiis vel, maxime similique earum ad? Sed doloribus modi quam quae quidem?</p>
-    <ul>
-      <li>Orange</li>
-      <li>Grape</li>
-      <li>Banana</li>
-      <li>Pear</li>
-      <li>Watermelon</li>
-    </ul>
-   
+<style>
+  .orb {
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    padding: 20px;
+    margin: auto;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    background-color: blue;
+    cursor: pointer;
     
-    <a href="https://www.google.com" target="blank">Google.com</a>
+}
 
-    <table>
-      <tr>
-        <th>Age </th>
-        <th>Name</th>
-      </tr>
-      <tr>
-        <td>Mark</td>
-        <Td>33</Td>
-      </tr>
-      <tr>
-          <td>Tuyen</td>
-          <Td>29</Td>
-        </tr>
-    </table>
+.sky {
+    height: 100vh;
+    width: 100vw;
+}
+
+.sun {
+   /* background-color: #ffdd00;*/
+   background-image: url('https://images-na.ssl-images-amazon.com/images/I/61tZtCwCi1L._SX425_.jpg');
+   background-size: contain;
+   background-repeat: no-repeat;
+    border: 10px solid #f1c40f;
+}
+.moon {
+    background-color:#a7a7ad;
+    border: 10px solid #eaeff2;
+}
+
+.night {
+    background-image: url('https://www.jessrobinson.co.uk/wp-content/uploads/2017/08/night-sky-full-of-stars-animation-made-of-sparkly-light-particles-moving-across-a-dark-blue-black-gradient-background_r4h2e5av__F0000.png');
+    background-repeat: no-repeat;
+}
+.day {
+    background-image: url('https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/SAKGwKC/cartoon-cloud-animation-with-loop_v211ezdke__F0005.png');
+    background-repeat: no-repeat;
+}
+
+.sun:hover {
+    border: 20px solid #f1c40f;
+}
+
+.moon:hover {
+    border: 20px solid #8f8d88;
+}
 
 
-<iframe width="600" height="638" src="https://www.youtube.com/embed/mu2RsEUOA3M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+.moonspot1 {
+    height: 40px;
+    width: 40px;
+    border-radius: 100%;
+    float:right;
+    margin: 20px;
+}
 
-<iframe width="600" height="600" src="https://www.youtube.com/embed/macpTiLzaqM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+.moonspot2 {
+    height: 60px;
+    width: 60px;
+    border-radius: 100%;
+    float:left;
+    margin: 20px;
+}
 
-  </div>
+.moonspot3 {
+    height: 80px;
+    width: 80px;
+    border-radius: 100%;
+    float:left;
+    margin: 20px;
+}
+
+.visible {
+    background-color: #7f94a0;
+}
+</style>
+<body>
+    <div class="orb sun">
+			  <div class="moonspot1"></div>
+    		<div class="moonspot2"></div>
+    		<div class="moonspot3"></div>
+		</div>
+    <div class="sky day"></div>
+
+    <script>
+    document.querySelector('.orb').onclick = function(){
+
+let orbClassList = this.classList;
+if (orbClassList.contains('sun')) {
+    orbClassList.replace('sun', 'moon');
+} else {
+    orbClassList.replace('moon', 'sun');        
+}
+
+let skyClassList = document.querySelector('.sky').classList;
+if (skyClassList.contains('day')) {
+skyClassList.replace('day', 'night');
+} else {
+skyClassList.replace('night', 'day');        
+}
+
+let moon1ClassList = document.querySelector('.moonspot1').classList;
+if (moon1ClassList.contains('visible')) {
+moon1ClassList.remove('visible');
+} else {
+moon1ClassList.add('visible');
+}
+
+let moon2ClassList = document.querySelector('.moonspot2').classList;
+if (moon2ClassList.contains('visible')) {
+moon2ClassList.remove('visible');
+} else {
+moon2ClassList.add('visible');
+}
+
+let moon3ClassList = document.querySelector('.moonspot3').classList;
+if (moon3ClassList.contains('visible')) {
+moon3ClassList.remove('visible');
+} else {
+moon3ClassList.add('visible');
+}
+};
+    </script>
 </body>
 
 </html>
